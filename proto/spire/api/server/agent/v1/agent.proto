@@ -122,6 +122,9 @@ message BanAgentRequest {
 }
 
 message AttestAgentRequest {
+    // Required. The agent version.
+    string version = 1;
+
     message Params {
         // Required. The attestation data.
         spire.api.types.AttestationData data = 1;
@@ -133,11 +136,11 @@ message AttestAgentRequest {
     // Required. The data for the step in the attestation flow.
     oneof step {
         // Attestation parameters. These are only sent in the initial request.
-        Params params = 1;
+        Params params = 2;
 
         // The response to a challenge issued by the attestor. Only sent in
         // response to a challenge received by the issuer.
-        bytes challenge_response = 2;
+        bytes challenge_response = 3;
     }
 }
 
