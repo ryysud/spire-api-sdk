@@ -64,7 +64,11 @@ message CountAgentsRequest {
 }
 
 message CountAgentsResponse {
+    // The total number of agents.
     int32 count = 1;
+
+    // The details of the total number of agents.
+    repeated CountDetail count_details = 2;
 }
 
 message ListAgentsRequest {
@@ -189,4 +193,12 @@ message AgentX509SVIDParams {
     // CSR is only used to convey the public key; other fields in the CSR are
     // ignored. The agent X509-SVID attributes are determined by the server.
     bytes csr = 1;
+}
+
+message CountDetail {
+    // The version of agents
+    string version = 1;
+
+    // The total number of specific version agents
+    int32 count = 2;
 }
