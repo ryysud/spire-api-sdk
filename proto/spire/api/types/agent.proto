@@ -23,6 +23,9 @@ message Agent {
 
     // Output only. Whether or not the agent is banned.
     bool banned = 6;
+
+    // Output only. The version of the agent
+    string version = 7;
 }
 
 message AgentMask {
@@ -40,4 +43,7 @@ message AgentMask {
 
     // banned field mask
     bool banned = 6;
+
+    // version field mask
+    bool version = 7;
 }
